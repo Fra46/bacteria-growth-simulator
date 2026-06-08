@@ -151,19 +151,3 @@ npm run dev
 ```
 
 5. Envía un pull request con una descripción clara del propósito.
-
-## Temas recomendados
-
-Estos son los temas (`topics`) sugeridos para GitHub:
-
-- `nextjs`
-- `react`
-- `typescript`
-- `tailwindcss`
-- `chartjs`
-- `scientific-simulation`
-- `education`
-- `mathematics`
-- `bacteria`
-
-> Los temas de GitHub se configuran en el repositorio de GitHub, no en el README.

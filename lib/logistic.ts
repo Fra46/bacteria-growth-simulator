@@ -91,18 +91,18 @@ function runSimulationEuler(
 
     const dNdt = r * N * (1 - N / K)
 
-    // Detectar máxima velocidad de crecimiento
+    // Detectar maxima velocidad de crecimiento
     if (dNdt > maxGrowthRate) {
       maxGrowthRate = dNdt
       maxGrowthTime = t
     }
 
-    // Detectar punto de inflexión (N cruza K/2)
+    // Detectar punto de inflexion (N cruza K/2)
     if (inflectionPoint === null && N >= K / 2) {
       inflectionPoint = { step: i, t, N }
     }
 
-    // Tiempo de duplicación: primer momento donde N ≥ 2·N0
+    // Tiempo de duplicacion: primer momento donde N ≥ 2·N0
     if (!foundDoubling && N >= 2 * N0) {
       doublingTime = t
       foundDoubling = true

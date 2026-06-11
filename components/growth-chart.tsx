@@ -7,6 +7,7 @@
 // =====================================================================
 
 import { useMemo } from 'react'
+import type { RefObject } from 'react'
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -36,9 +37,10 @@ ChartJS.register(
 interface GrowthChartProps {
   points: SimulationPoint[] // Puntos visibles (animación progresiva)
   K: number // Capacidad de carga (línea de referencia)
+  chartRef?: RefObject<ChartJS<'line'>>
 }
 
-export function GrowthChart({ points, K }: GrowthChartProps) {
+export function GrowthChart({ points, K, chartRef }: GrowthChartProps) {
   // Construcción de los datos del gráfico de forma memoizada.
   const data = useMemo(() => {
     return {
@@ -103,8 +105,8 @@ export function GrowthChart({ points, K }: GrowthChartProps) {
   )
 
   return (
-    <div className="h-[360px] w-full md:h-[420px]">
-      <Line data={data} options={options} aria-label="Gráfica de crecimiento poblacional" />
+    <div className="h-[360px] w-full md:h-[420px] rounded-3xl border border-border bg-background/80 p-2 shadow-inner shadow-slate-900/5">
+      <Line ref={chartRef as React.LegacyRef<ChartJS<'line'>>} data={data} options={options} aria-label="Gráfica de crecimiento poblacional" />
     </div>
   )
 }
